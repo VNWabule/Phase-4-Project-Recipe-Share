@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color:green;
+  margin-bottom: 2rem;
+}
+
+nav h1 {
+  margin: 0;
+}
+
+nav a, nav span, nav button {
+  margin-left: 1rem;
+}
+
+.bookmark-list {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.bookmark-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.bookmark-list li {
+  margin: 0.5rem 0;
+}
+
+.bookmark-list a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.bookmark-list a:hover {
+  text-decoration: underline;
+}
