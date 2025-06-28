@@ -14,6 +14,7 @@ sqlalchemy-serializer = "*"
 flask-sessions = "*"
 flask-session = "*"
 pyjwt = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 

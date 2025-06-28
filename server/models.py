@@ -33,7 +33,7 @@ class User(db.Model):
             "updated_at": self.updated_at.isoformat(),
             "recipes": [r.to_dict_basic() for r in self.recipes],
             "comments": [c.to_dict_basic() for c in self.comments],
-            "bookmarked_recipes": [r.id for r in self.bookmarked_recipes]  # lightweight
+            "bookmarked_recipes": [r.id for r in self.bookmarked_recipes] 
         }
 
     def to_dict_basic(self):
@@ -94,7 +94,7 @@ class Recipe(db.Model):
             "average_rating": self.average_rating,
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat(),
-            "user": self.user.to_dict_basic(),  # prevent loop
+            "user": self.user.to_dict_basic(), 
             "comments": [comment.to_dict() for comment in self.comments]
         }
 
@@ -196,7 +196,6 @@ class Bookmark(db.Model):
                 "id": self.recipe.id,
                 "title": self.recipe.title,
                 "image_url": self.recipe.image_url,
-                # Add any other fields you want to show
             }
         }
     

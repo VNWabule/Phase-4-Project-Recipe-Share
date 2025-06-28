@@ -71,7 +71,7 @@ with app.app_context():
     db.session.add_all(recipes)
     db.session.commit()
 
-    # Add sample comments
+    # sample comments
     comments = [
         Comment(content="Looks delicious!", user=user2, recipe=recipes[0]),
         Comment(content="Tried it—came out perfect.", user=user3, recipe=recipes[0]),
@@ -82,7 +82,7 @@ with app.app_context():
 
     db.session.add_all(comments)
 
-    # Add bookmarks (users saving recipes)
+    # bookmarks (users saving recipes)
     bookmarks = [
         Bookmark(user=user1, recipe=recipes[1]),
         Bookmark(user=user2, recipe=recipes[0]),

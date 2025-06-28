@@ -4,10 +4,10 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
-    # Database configuration (SQLite for dev by default)
+    # Database configuration (PostgreSQL by default, fallback to SQLite)
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'DATABASE_URL',
-        f"sqlite:///{os.path.join(BASE_DIR, 'app.db')}"
+        'postgresql://postgres:daxter94d@localhost:5555/recipe_share_db'  
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -24,8 +24,8 @@ class Config:
     # Secure cookie flag (True if running in production)
     SECURE_COOKIE = os.environ.get("FLASK_ENV", "").lower() == "production"
 
-    # Debug flag (optional, for centralized control)
+    # Debug flag (optional)
     DEBUG = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
 
+    # Frontend URL for password reset
     RESET_FRONTEND_URL = os.environ.get('RESET_FRONTEND_URL', 'http://localhost:3000/reset-password')
-
