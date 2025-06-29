@@ -1,6 +1,6 @@
 # 🍽️ Recipe Share
 
-A full-stack recipe sharing application built with a **Flask REST API backend** and a **React frontend**. Users can browse and try recipes, with support for authentication and user-submitted notes.
+A full-stack recipe sharing application built with a **Flask REST API backend** and a **React frontend**. Users can browse and try recipes, with support for authentication.
 
 ---
 
@@ -81,7 +81,6 @@ A full-stack recipe sharing application built with a **Flask REST API backend** 
 - Recipe creation and viewing
 - Bookmark recipes with personal notes
 - Responsive design with client-side routing
-- Form validation using Formik & Yup
 
 ---
 
@@ -115,7 +114,7 @@ A full-stack recipe sharing application built with a **Flask REST API backend** 
 
 - / – Home / Recipe list
 - /login – Login form
-- /signup – Signup form
+- /register – Signup form
 - /recipes/:id – Recipe detail
 - /bookmarks – Bookmarked recipes
 
