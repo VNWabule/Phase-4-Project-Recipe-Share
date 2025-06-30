@@ -1,5 +1,6 @@
 // src/components/ForgotPassword.jsx
 import React, { useState } from "react";
+import "./FormStyles.css"; // Adjust path if needed
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -29,24 +30,33 @@ function ForgotPassword() {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <h2>Forgot Your Password?</h2>
-      <p>Enter your email to receive password reset instructions.</p>
+      <p style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+        Enter your email to receive password reset instructions.
+      </p>
 
       <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Your email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <button type="submit">Send Reset Link</button>
+        <div className="form-group">
+          <label htmlFor="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className="submit-btn">
+          Send Reset Link
+        </button>
       </form>
 
-      {message && <p style={{ color: "green" }}>{message}</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {message && <p className="success-message">{message}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 }

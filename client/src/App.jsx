@@ -5,17 +5,17 @@ import Navbar from "./components/Navbar";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import RecipePage from "./components/RecipePage";
-import RecipeDetail from "./components/RecipeDetail";
+import RecipeDetails from "./components/RecipeDetails";
 import ResetPassword from "./components/ResetPassword";
 import ForgotPassword from "./components/ForgotPassword";
 import AddRecipeForm from "./components/AddRecipeForm";
 import BookmarkList from "./components/BookmarkList";
 
-import { checkSession } from "./api/axios";
 import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // Added loading state
 
   useEffect(() => {
     const accessToken = localStorage.getItem("access_token");
@@ -54,10 +54,13 @@ function App() {
             })
             .then((res) => res.json())
             .then((data) => setUser(data.user))
-            .catch(() => setUser(null));
-        });
+            .catch(() => setUser(null))
+            .finally(() => setLoading(false)); // Finish loading even on error
+        })
+        .finally(() => setLoading(false)); // Finish loading even on success
     } else {
       setUser(null);
+      setLoading(false); // No token, stop loading
     }
   }, []);
 
@@ -66,30 +69,32 @@ function App() {
       <div className="App">
         <Navbar user={user} setUser={setUser} />
 
-        <Routes>
-          <Route path="/" element={<RecipePage />} />
-          <Route
-            path="/login"
-            element={!user ? <LoginForm setUser={setUser} /> : <Navigate to="/" />}
-          />
-          <Route
-            path="/register"
-            element={!user ? <RegisterForm setUser={setUser} /> : <Navigate to="/" />}
-          />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/recipes/:id" element={<RecipeDetail user={user} />} />
-
-          
-          <Route
-            path="/bookmarks"
-            element={user ? <BookmarkList /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/add-recipe"
-            element={user ? <AddRecipeForm /> : <Navigate to="/login" />}
-          />
-        </Routes>
+        {loading ? (
+          <p style={{ textAlign: "center", marginTop: "2rem" }}>Loading...</p>
+        ) : (
+          <Routes>
+            <Route path="/" element={<RecipePage user={user} />} />
+            <Route
+              path="/login"
+              element={!user ? <LoginForm setUser={setUser} /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/register"
+              element={!user ? <RegisterForm setUser={setUser} /> : <Navigate to="/" />}
+            />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/recipes/:id" element={<RecipeDetails user={user} />} />
+            <Route
+              path="/bookmarks"
+              element={user ? <BookmarkList /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/add-recipe"
+              element={user ? <AddRecipeForm /> : <Navigate to="/login" />}
+            />
+          </Routes>
+        )}
       </div>
     </Router>
   );

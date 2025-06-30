@@ -1,5 +1,6 @@
 // src/components/ResetPassword.jsx
 import React, { useState } from "react";
+import "./FormStyles.css"; // Make sure path is correct
 
 function ResetPassword() {
   const [token, setToken] = useState("");
@@ -30,30 +31,40 @@ function ResetPassword() {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <h2>Reset Your Password</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="token"
-          placeholder="Reset token"
-          value={token}
-          onChange={(e) => setToken(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          name="new_password"
-          placeholder="New password"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Reset Password</button>
+        <div className="form-group">
+          <label htmlFor="token">Reset Token</label>
+          <input
+            type="text"
+            id="token"
+            name="token"
+            value={token}
+            onChange={(e) => setToken(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="new_password">New Password</label>
+          <input
+            type="password"
+            id="new_password"
+            name="new_password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className="submit-btn">
+          Reset Password
+        </button>
       </form>
 
-      {message && <p style={{ color: "green" }}>{message}</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {message && <p className="success-message">{message}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 }

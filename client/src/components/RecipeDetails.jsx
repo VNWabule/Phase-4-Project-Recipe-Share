@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import CommentSection from "./CommentSection";
 
 function RecipeDetails({ recipe, onBack, user }) {
+  console.log("RecipeDetails user prop:", user);
+
   const [comments, setComments] = useState(recipe?.comments || []);
   const [newComment, setNewComment] = useState("");
   const [bookmarkMessage, setBookmarkMessage] = useState("");
@@ -109,7 +111,6 @@ function RecipeDetails({ recipe, onBack, user }) {
         ))} ({recipe.average_rating?.toFixed(1)})
       </p>
 
-      {/* 🔖 Bookmark Button */}
       {user && (
         <>
           <button onClick={handleBookmark} style={{ margin: "0.5rem 0", padding: "0.5rem 1rem", borderRadius: "5px" }}>

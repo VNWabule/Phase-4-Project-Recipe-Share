@@ -1,14 +1,14 @@
 // src/components/RecipesPage.jsx
 import React, { useEffect, useState } from "react";
 import RecipeList from "./RecipeList";
-import RecipeDetails from "./RecipeDetail";
+import RecipeDetails from "./RecipeDetails";
 
-function RecipesPage() {
+function RecipesPage({user}) {
   const [recipes, setRecipes] = useState([]);
-  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [selectedRecipe, setSelectedRecipe] = useState(null); 
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5555/recipes") // adjust if your backend route is different
+    fetch("http://127.0.0.1:5555/recipes")
       .then((res) => res.json())
       .then(setRecipes)
       .catch((err) => console.error("Failed to fetch recipes:", err));
@@ -19,7 +19,12 @@ function RecipesPage() {
       <h2>Browse Recipes</h2>
 
       {selectedRecipe ? (
-        <RecipeDetails recipe={selectedRecipe} onBack={() => setSelectedRecipe(null)} />
+        <RecipeDetails
+          recipe={selectedRecipe}
+          user={user} // <-- Add this line
+          onBack={() => setSelectedRecipe(null)}
+        />
+
       ) : (
         <RecipeList recipes={recipes} onRecipeClick={setSelectedRecipe} />
       )}
