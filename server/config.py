@@ -28,4 +28,4 @@ class Config:
     DEBUG = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
 
     # Frontend URL for password reset
-    RESET_FRONTEND_URL = os.environ.get('RESET_FRONTEND_URL', 'http://localhost:3000/reset-password')
+    RESET_FRONTEND_URL = os.environ.get('RESET_FRONTEND_URL', 'http://127.0.0.1:5173/reset-password')
