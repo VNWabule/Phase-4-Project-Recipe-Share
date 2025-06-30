@@ -79,7 +79,7 @@ A full-stack recipe sharing application built with a **Flask REST API backend** 
 
 - User authentication with JWT
 - Recipe creation and viewing
-- Bookmark recipes with personal notes
+- Bookmark recipes 
 - Responsive design with client-side routing
 
 ---
@@ -134,3 +134,4 @@ A full-stack recipe sharing application built with a **Flask REST API backend** 
 - User profiles
 - Recipe categories or tags
 - Advanced search and filters
+- bookmark notes
