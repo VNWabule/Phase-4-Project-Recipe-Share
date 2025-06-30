@@ -27,7 +27,7 @@ function CommentSection({ comments, currentUser, onDelete }) {
                 </small>
               </p>
             )}
-            {currentUser?.id === comment.user_id && (
+            {currentUser?.id === comment.user?.id && (
               <button
                 className="delete-btn"
                 onClick={() => onDelete(comment.id)}
@@ -35,6 +35,7 @@ function CommentSection({ comments, currentUser, onDelete }) {
                 Delete
               </button>
             )}
+
           </div>
         ))
       )}
