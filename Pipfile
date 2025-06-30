@@ -15,6 +15,7 @@ flask-sessions = "*"
 flask-session = "*"
 pyjwt = "*"
 psycopg2-binary = "*"
+gunicorn = "*"
 
 [dev-packages]
 
