@@ -10,7 +10,7 @@ function RecipeDetails({ recipe, onBack, user }) {
 
   useEffect(() => {
     if (recipe?.id) {
-      fetch(`http://127.0.0.1:5555/recipes/${recipe.id}/comments`)
+      fetch(`https://phase-4-project-recipe-share-backend.onrender.com/recipes/${recipe.id}/comments`)
         .then((res) => res.json())
         .then((data) => setComments(data))
         .catch((err) => console.error("Failed to fetch comments", err));
@@ -27,7 +27,7 @@ function RecipeDetails({ recipe, onBack, user }) {
       content: newComment,
     };
 
-    fetch("http://127.0.0.1:5555/comments", {
+    fetch("https://phase-4-project-recipe-share-backend.onrender.com/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ function RecipeDetails({ recipe, onBack, user }) {
   };
 
   const handleCommentDelete = (commentId) => {
-    fetch(`http://127.0.0.1:5555/comments/${commentId}`, {
+    fetch(`https://phase-4-project-recipe-share-backend.onrender.com/comments/${commentId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -67,7 +67,7 @@ function RecipeDetails({ recipe, onBack, user }) {
       return;
     }
 
-    fetch("http://127.0.0.1:5555/bookmarks", {
+    fetch("https://phase-4-project-recipe-share-backend.onrender.com/bookmarks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

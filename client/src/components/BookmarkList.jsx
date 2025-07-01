@@ -25,7 +25,7 @@ function BookmarkList() {
   }, []);
 
   function handleRemove(bookmarkId) {
-    fetch(`http://localhost:5555/bookmarks/${bookmarkId}`, {
+    fetch(`https://phase-4-project-recipe-share-backend.onrender.com/bookmarks/${bookmarkId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

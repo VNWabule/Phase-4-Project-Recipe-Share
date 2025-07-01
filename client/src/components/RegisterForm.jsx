@@ -13,7 +13,7 @@ function RegisterForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5555/register', form, {
+      const res = await axios.post('https://phase-4-project-recipe-share-backend.onrender.com/register', form, {
         withCredentials: true,
       });
       setMessage(res.data.message);

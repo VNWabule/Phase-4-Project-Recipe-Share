@@ -10,7 +10,7 @@ function ForgotPassword() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:5555/request_password_reset", {
+    fetch("https://phase-4-project-recipe-share-backend.onrender.com/request_password_reset", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email })

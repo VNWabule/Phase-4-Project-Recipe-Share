@@ -11,7 +11,7 @@ function ResetPassword() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:5555/reset_password", {
+    fetch("https://phase-4-project-recipe-share-backend.onrender.com/reset_password", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token, new_password: newPassword })

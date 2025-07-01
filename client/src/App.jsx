@@ -21,7 +21,7 @@ function App() {
     const accessToken = localStorage.getItem("access_token");
 
     if (accessToken) {
-      fetch("http://localhost:5555/check_session", {
+      fetch("https://phase-4-project-recipe-share-backend.onrender.com/check_session", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
@@ -34,7 +34,7 @@ function App() {
         })
         .then((data) => setUser(data.user))
         .catch(() => {
-          fetch("http://localhost:5555/refresh", {
+          fetch("https://phase-4-project-recipe-share-backend.onrender.com/refresh", {
             method: "POST",
             credentials: "include",
           })
@@ -42,7 +42,7 @@ function App() {
             .then((data) => {
               if (data.access_token) {
                 localStorage.setItem("access_token", data.access_token);
-                return fetch("http://localhost:5555/check_session", {
+                return fetch("https://phase-4-project-recipe-share-backend.onrender.com/check_session", {
                   headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${data.access_token}`,

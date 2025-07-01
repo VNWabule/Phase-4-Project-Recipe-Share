@@ -6,7 +6,7 @@ function Navbar({ user, setUser }) {
   const navigate = useNavigate();
 
   function handleLogout() {
-    fetch("http://localhost:5555/logout", {
+    fetch("https://phase-4-project-recipe-share-backend.onrender.com/logout", {
       method: "DELETE",
       credentials: "include",
     }).then(() => {

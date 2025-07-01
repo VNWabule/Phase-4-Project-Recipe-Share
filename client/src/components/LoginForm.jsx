@@ -14,7 +14,7 @@ function LoginForm({ setUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:5555/login", {
+    fetch("https://phase-4-project-recipe-share-backend.onrender.com/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

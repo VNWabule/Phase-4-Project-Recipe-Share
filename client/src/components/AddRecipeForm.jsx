@@ -35,7 +35,7 @@ function AddRecipeForm({ onAdd }) {
     setMessageType('');
 
     try {
-      const res = await fetch('http://127.0.0.1:5555/recipes', {
+      const res = await fetch('https://phase-4-project-recipe-share-backend.onrender.com/recipes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -8,7 +8,7 @@ function RecipesPage({user}) {
   const [selectedRecipe, setSelectedRecipe] = useState(null); 
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5555/recipes")
+    fetch("https://phase-4-project-recipe-share-backend.onrender.com/recipes")
       .then((res) => res.json())
       .then(setRecipes)
       .catch((err) => console.error("Failed to fetch recipes:", err));
