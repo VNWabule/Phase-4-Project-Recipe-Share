@@ -7,7 +7,7 @@ class Config:
     # Database configuration (PostgreSQL by default, fallback to SQLite)
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'DATABASE_URL',
-        'postgresql://postgres:daxter94@localhost:5432/recipe_share_db'  
+        'postgresql://recipe_share_db_hl0b_user:9NVj74FofhRxSCckqpdkzKgdFVRdX1CN@dpg-d1ha0u6mcj7s73dldft0-a.oregon-postgres.render.com/recipe_share_db_hl0b'  
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
